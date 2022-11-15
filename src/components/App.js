@@ -1,25 +1,32 @@
-import logo from '../imgs/logo.svg';
-import '../styles/App.css';
+/* eslint-disable no-useless-constructor */
+import React, { Component } from "react";
+import MyComponent from "./MyComponent";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and fap to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      count: 0,
+    }
+
+    this.onClickBtn = this.onClickBtn.bind(this);
+  }
+
+  onClickBtn() {
+    this.setState({
+      count: this.state.count + 1,
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <MyComponent title="React" onButtonClicked={this.onClickBtn} 
+        count={this.state.count}/>
+      </div>
+    );
+  }
 }
 
 export default App;
