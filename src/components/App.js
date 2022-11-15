@@ -14,6 +14,7 @@ class App extends Component {
   }
 
   onClickBtn() {
+    /* Always use setState(), never alter state directly */
     this.setState({
       count: this.state.count + 1,
     })
