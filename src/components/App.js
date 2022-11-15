@@ -20,10 +20,12 @@ class App extends Component {
   }
 
   render() {
+    const { count } = this.state;
+
     return (
       <div>
         <MyComponent title="React" onButtonClicked={this.onClickBtn} 
-        count={this.state.count}/>
+        count={count}/>
       </div>
     );
   }
