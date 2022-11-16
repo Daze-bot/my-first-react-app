@@ -8,6 +8,7 @@ class App extends Component {
 
     this.state = {
       count: 0,
+      mod: 1,
     }
 
     this.onClickBtn = this.onClickBtn.bind(this);
@@ -15,9 +16,17 @@ class App extends Component {
 
   onClickBtn() {
     /* Always use setState(), never alter state directly */
-    this.setState({
-      count: this.state.count + 1,
-    })
+    this.setState((state) => ({
+      count: state.count + state.mod,
+    }));
+    
+    this.setMod();
+  }
+
+  setMod() {
+    this.setState((state) => ({
+      mod: Math.floor(state.count / 100) + 1,
+    }))
   }
 
   render() {

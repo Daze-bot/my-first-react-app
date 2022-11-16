@@ -11,12 +11,20 @@ class MyComponent extends Component {
 
     return (
       <div>
-        <h1>{title}</h1>
+        <h1>{
+          (title instanceof Array)
+            ? title.map(x => x + " ")
+            : title
+          }</h1>
         <button onClick={onButtonClicked}>Click Me!</button>
         <p>{count}</p>
       </div>
     );
   }
+}
+
+MyComponent.defaultProps = {
+  title: ['Jevon', 'Heather', 'Gio'],
 }
 
 export default MyComponent;
